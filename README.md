@@ -1,8 +1,14 @@
-# React + Vite
+# **_LA TIENDITA_**
+___
+### _¡Bienvenido al proyecto de "La Tiendita"!_
+En este proyecto de React, creado para el curso de Coderhouse. 
+Estamos creando una aplicación web que simula una tienda en línea especializada en la venta de cervezas artesanales.
+___
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Caracteristicas Principales.
+* Explora una amplia selección de cervezas artesanales de diferentes estilos y sabores.
+* Filtra cervezas por categorías, sabores, graduación alcohólica y más.
+* Agrega cervezas al carrito de compras y gestiona las cantidades.
+* Realiza un proceso de checkout simulado para ver cómo funcionaría la compra.
+* Interfaz de usuario intuitiva y atractiva.
+* Diseño receptivo para una experiencia óptima en dispositivos móviles y de escritorio.

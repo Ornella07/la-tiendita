@@ -1,5 +1,6 @@
-// import React from "react"
+import React from "react"
 import { Divider, Flex, Box } from '@chakra-ui/react'
+
 
 
 const CartWidget = () =>{
@@ -11,7 +12,7 @@ const CartWidget = () =>{
                 </Box>
                 <Divider />
                 <Box>
-                <p>13</p>
+                <p>3</p>
                 </Box>
             </Flex>
         </div>
