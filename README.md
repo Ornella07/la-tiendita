@@ -12,7 +12,4 @@ ___
 * Realiza un proceso de checkout simulado para ver cómo funcionaría la compra.
 * Interfaz de usuario intuitiva y atractiva.
 * Diseño receptivo para una experiencia óptima en dispositivos móviles y de escritorio.
-<<<<<<< HEAD
-=======
 
->>>>>>> fb72f4e7b8b4b03be7f2fc79268762abe2e15ee0
