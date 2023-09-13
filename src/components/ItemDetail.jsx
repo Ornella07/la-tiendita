@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardBody, CardFooter,Stack,Image,Divider, ButtonGroup, Heading, Text, CardHeader, Center, Grid} from '@chakra-ui/react'
+import {Card, CardBody, CardFooter,Image, Heading, Text, CardHeader, Center} from '@chakra-ui/react'
 import ItemCount from './ItemCount'
 import { useParams } from "react-router-dom";
 
@@ -19,16 +19,16 @@ const ItemDetail = ({ productos }) => {
                         <Center p='1rem' > 
                         <Card>
                             <CardHeader>
-                                <Heading size='md' >{producto.titulo}</Heading>
+                                <Heading size='md' textAlign='center'>{producto.titulo}</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Image
-                                    src={producto.imagen}
-                                    alt={producto.descripcion}
-                                    borderRadius='lg'                                
+                                <Image  boxSize='250px'
+                                        objectFit='cover'
+                                        src={producto.imagen}
+                                        borderRadius='lg'               
                                 />
-                                <Text>{producto.descripcion}</Text>
-                                <Text>{producto.categoria}</Text>
+                                <Text as="" textAlign='center'>Descripcion: {producto.description}</Text>
+                                <Text  >Categoria: {producto.categoria}</Text>
                             </CardBody>
                             <CardFooter>
                                 <ItemCount />

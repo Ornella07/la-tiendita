@@ -9,17 +9,18 @@ const ItemCount = () => {
         <>
             <Stack direction={['column','row']} spacing='24px'>
                 <Box w='40px' h='40px'>
-                    <Button size='xs' onClick={() => setContador(contador + 1)}>
-                        +
+                    <Button size='xs' onClick={() => setContador(contador - 1)}>
+                        -
                     </Button>
                 </Box>
                 <Box w='40px' h='40px'>
                     <p>{contador}</p>
                 </Box>
                 <Box  w='40px' h='40px'>
-                <Button size='xs' onClick={() => setContador(contador - 1)}>
-                        -
+                <Button size='xs' onClick={() => setContador(contador + 1)}>
+                        +
                     </Button>
+                
                 </Box>
             </Stack>
         

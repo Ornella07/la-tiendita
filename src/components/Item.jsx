@@ -13,6 +13,8 @@ const Item = ({ producto }) => {
             <Card maxW='sm'>
                 <CardBody>
                 <Image
+                    boxSize='250px'
+                    objectFit='cover'
                     src={producto.imagen}
                     borderRadius='lg'
                 />
@@ -31,9 +33,9 @@ const Item = ({ producto }) => {
                 <ButtonGroup spacing='2'  >
                     <Button variant='solid' colorScheme='red' as="i" size='md'
                         height='48px'
-                        width='200px'
+                        width='300px'
                         textColor='gray.800'>
-                    <Link to={`/item/${producto.id}`}>Detalle</Link>
+                    <Link to={`/item/${producto.id}`}> Detalle </Link>
                     </Button>
                 </ButtonGroup>
                 </CardFooter>
