@@ -13,6 +13,7 @@ ___
 * Interfaz de usuario intuitiva y atractiva.
 * Diseño receptivo para una experiencia óptima en dispositivos móviles y de escritorio.
 
+___
 
 
 ![Uploading GifFuncionamiento.gif…]()
