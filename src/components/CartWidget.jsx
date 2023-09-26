@@ -1,21 +1,22 @@
-import React from "react"
-import { Divider, Flex, Box } from '@chakra-ui/react'
+
+import { Link } from "react-router-dom";
+import React, { useContext } from "react"
+import { CartContext } from "../context/CartContext"
 
 
-
-const CartWidget = () =>{
+const CartWidget = () => {
+    const {cantidadTotal} = useContext(CartContext);
+ 
     return (
-        <div>
-            <Flex>
-                <Box>
-                <span className="material-symbols-outlined">Shopping_cart</span>
-                </Box>
-                <Divider />
-                <Box>
-                <p>3</p>
-                </Box>
-            </Flex>
+        <div className='widgetCarrito'>
+            <Link to="/cart">
+            <span className="material-symbols-outlined">Shopping_cart</span>
+            {
+                cantidadTotal > 0 && <strong className='cantidad'>{cantidadTotal}</strong>
+            }
+            </Link>
         </div>
     )
 }
-export default CartWidget 
+
+    export default CartWidget;

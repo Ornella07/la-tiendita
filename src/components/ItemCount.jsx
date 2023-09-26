@@ -1,5 +1,9 @@
-import {useState} from "react"
-import {Button, Stack, Box } from "@chakra-ui/react"
+import { useState } from "react";
+// import "./ItemCount.css";
+// import Swal from "sweetalert2";
+
+import { Stack, Box, Button } from "@chakra-ui/react";
+
 
 const ItemCount = () => {
 
@@ -21,6 +25,9 @@ const ItemCount = () => {
                         +
                     </Button>
                 
+                </Box>
+                <Box>
+                    <button onClick={()=> alert(`Cantidad agregada ${contador}`)} >Agregar al Carrito</button>
                 </Box>
             </Stack>
         

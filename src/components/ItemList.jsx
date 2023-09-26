@@ -3,17 +3,21 @@ import Item from './Item'
 import { Flex } from "@chakra-ui/react"
 
 
+//React.memo
+//alamance informacion que ya ha sido mostrada en alguna oportunidad
+
+
+
 const ItemList = ({ productos }) => {
     return(
         <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center" gap={4}>
             {
-            productos.map((p) => {
-                return (
-                    <div key={p.id}>
-                        <Item producto = { p } />
-                    </div>
-                )
-            })
+                
+                productos.map((producto)=>{
+                    <Item producto={producto}  key={producto.id} />
+                                        
+                })
+    
             }
         </Flex>
             )

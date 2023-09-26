@@ -1,21 +1,27 @@
 import {useState} from "react"
 
-const useCounter = (initialValue =0, step = 1)=>{
-    const [count, setCount] = useState(initialValue)
+export const useCount = (initial = 0, min, max)=> {
+    if(initial < min || initial > max) initial = min
 
-    const increment = () => {
-        setCount((prevCount) => prevCount + step)
-    }
+    const [count, setCount] = useState(initial)
 
     const decrement = () =>{
-        setCount((prevCount)=> prevCount - step)
+        if(count > min) setCount( prevCount - 1)
     }
-
+    const increment = () => {
+        if(count < max) setCount( prevCount + step)
+    }
+    const reset = () => {
+        setCount(initial)
+}
     return {
         count,
         increment,
-        decrement
+        decrement,
+        reset
     }
 }
+
+
 
 export default useCounter

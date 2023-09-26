@@ -1,50 +1,22 @@
-import React from 'react'
-import {Card, CardBody, Image, Stack,Text, Button, ButtonGroup, Heading,Divider, CardFooter} from "@chakra-ui/react"
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@chakra-ui/react';
+// import './Item.css';
 
 
+const Item = ({ id, titulo, precio, imagen, descripcion }) => {
+    return (
+        <div className='cardProducto card'>
+            <img className='imgProducto' src={imagen} alt={titulo} />
+            <h3> {titulo}</h3>
+            <p>Precio: ${precio}</p>
+            <p>Descripcion: ${descripcion}</p>
+            <Button className='button' as={Link} to={`/item/${id}`} variant="secondary">
+                Ver Detalles
+            </Button>
+        </div>
+    );
+};
 
-const Item = ({ producto }) => {
-    console.log(producto)
 
-    return(
-        <div>
-        
-            <Card maxW='sm'>
-                <CardBody>
-                <Image
-                    boxSize='250px'
-                    objectFit='cover'
-                    src={producto.imagen}
-                    borderRadius='lg'
-                />
-                <Stack mt='6' spacing='3'>
-                    <Heading size='md' as="cite">{producto.titulo}</Heading>
-                    <Text as="em">
-                    {producto.descripcion}
-                    </Text>
-                    <Text color='gray.600' fontSize='2xl' as="kbd">
-                    ${producto.precio}
-                    </Text>
-                </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                <ButtonGroup spacing='2'  >
-                    <Button variant='solid' colorScheme='red' as="i" size='md'
-                        height='48px'
-                        width='300px'
-                        textColor='gray.800'>
-                    <Link to={`/item/${producto.id}`}> Detalle </Link>
-                    </Button>
-                </ButtonGroup>
-                </CardFooter>
-                <itemCount />
-                </Card>
-        
-    </div>
-    )
-
-}
-
-export default Item
+export default Item;
