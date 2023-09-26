@@ -13,8 +13,7 @@ const ItemList = ({ productos }) => {
         <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center" gap={4}>
             {
                 
-                productos.map((producto)=>{
-                    <Item producto={producto}  key={producto.id} />
+                productos.map((producto)=>{<Item{...producto} key={producto. Id}/>
                                         
                 })
     
