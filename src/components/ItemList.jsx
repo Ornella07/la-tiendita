@@ -9,15 +9,15 @@ import { Flex } from "@chakra-ui/react"
 
 
 const ItemList = ({ productos }) => {
-    return(
-        <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center" gap={4}>
-            {
-                
-                productos.map((producto)=>{<Item{...producto} key={producto. Id}/>
-                                        
-                })
-    
-            }
+    return (
+        <Flex
+            flexWrap='wrap'
+            justifyContent='space-around'
+            alignItems='center'
+            gap={4}>
+            {productos.map((producto) => {
+                return <Item {...producto} key={producto.Id} />;
+            })}
         </Flex>
             )
 }
