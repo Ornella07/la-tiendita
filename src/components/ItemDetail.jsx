@@ -1,32 +1,15 @@
 import React, { useContext } from "react";
-import {Card, CardBody, CardFooter,Image, Heading, Text, CardHeader, Center, ButtonGroup, Divider, Stack} from '@chakra-ui/react'
+import {Card, CardBody,Image, Heading, Text, CardHeader, Center, ButtonGroup, Divider, Stack} from '@chakra-ui/react'
 import ItemCount from './ItemCount'
-import { useParams } from "react-router-dom";
-import CartContext from "../context/CartContext";
-import { useState, useEffect } from "react"
+// import { useParams } from "react-router-dom";
+// import CartContext from "../context/CartContext";
+// import { useState, useEffect } from "react"
+// import {doc, getDoc, getFirestore} from 'firebase/firestore'
+
 
 
 const ItemDetail = ({ productos }) => {
-    const [producto, setProductos] = useState([]);
-    console.log(producto)
-    const {id} = useParams()
-
-    useEffect(()=>{
-        const db = getFirestore()
-
-        const oneItem = doc(db, "tiendita", `${id}`)
-        console.log(oneItem)
-        getDoc(oneItem).then((snapshot) => {
-            if(snapshot.exists()){
-                const docs = snapshot.data()
-                setProductos(docs)
-            }
-        })
-    },[])
-    // const { addItem } = useContext(CartContext)
-    // function handleAddItem(quantity){
-    //     addItem(filteredProduct[0], quantity)
-    // }
+    
         return (
                 <div>
                     <Center p='1rem' > 
@@ -56,5 +39,8 @@ const ItemDetail = ({ productos }) => {
 
     )
 }
+export default React.memo(ItemDetail)
+
+
 export default React.memo(ItemDetail)
 
