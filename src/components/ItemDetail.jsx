@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import {Card, CardBody, CardFooter,Image, Heading, Text, CardHeader, Center, ButtonGroup, Divider, Stack} from '@chakra-ui/react'
+import {Card, CardBody,Image, Heading, Text, CardHeader, Center, ButtonGroup, Divider, Stack} from '@chakra-ui/react'
 import ItemCount from './ItemCount'
 import { useParams } from "react-router-dom";
 import CartContext from "../context/CartContext";
 import { useState, useEffect } from "react"
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
+
 
 
 const ItemDetail = ({ productos }) => {
@@ -46,7 +48,7 @@ const ItemDetail = ({ productos }) => {
                                 <Text  >Precio: $ {productos.Precio}</Text>
                             </CardBody>
                             <ButtonGroup>
-                                <ItemCount handleAdd={handleAddItem} />            
+                                {/* <ItemCount handleAdd={handleAddItem} />             */}
                             </ButtonGroup>
                             
                         </Card>

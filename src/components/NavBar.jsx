@@ -9,27 +9,29 @@ import {
 } from '@chakra-ui/react'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
+import   '../../src/style.css'
+
 
 const NavBar = () => {
     return (
         <div>
 
-            <Flex bg='gray.700' alignItems={'center'} justifyContent={'space-between'}>
+            <Flex className='navbar'  bg='gray.700' alignItems={'center'} justifyContent={'space-between'}>
                 <Box p='3'>
                     <Link to={'/'}>
-                        <img src='./src/images/birrita.png '/>
+                        <img src='https://firebasestorage.googleapis.com/v0/b/la-tiendita-b1add.appspot.com/o/birrita.png?alt=media&token=ded05d52-a094-41d8-98d4-a73b86973903'/>
                     </Link>
                 </Box>
                 <Spacer />
-                <Box  p='4' m='2' fontSize={19} color={'grey'}>
+                <Box  p='4' m='3'>
                 <Menu>
-                        <MenuButton>
+                        <MenuButton  fontSize={19} color={'grey'}>
                         Birritas
                         </MenuButton>
-                        <MenuList>
-                        <MenuItem>
-                            <Link to={`/category/${'Roja'}`}>
-                                Roja
+                        <MenuList  fontSize={18} color={'grey'}>
+                        <MenuItem  >
+                            <Link  to={`/category/${'Red'}`}>
+                                Red
                             </Link>
                         </MenuItem>
                         <MenuItem>
@@ -38,8 +40,8 @@ const NavBar = () => {
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                        <Link to={`/category/${'Negra'}`}>
-                                Negra
+                        <Link to={`/category/${'Porter'}`}>
+                                Porter
                             </Link>
                         </MenuItem>
 

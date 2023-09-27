@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,400&family=Poppins:wght@200&display=swap');
+
+.cardProducto {
+    border: 1px solid #e3e1e1;
+    border-radius: 8px;
+    width: 15rem;
+    padding: 2rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .imgProducto {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    
+  }
+  .imgProducto:hover{
+    transform: scale(1.2);
+  }
+  
+  .cardProducto h3 {
+    font-family: 'Montserrat', sans-serif;
+    color:wheat;
+    font-size: 1.2rem;
+    font-weight:500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cardProducto p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color:wheat;
+    letter-spacing: 1.4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .button {
+      margin-bottom: 5px;
+      color:wheat;
+      height: 10px;
+     
+  }
+  
+  .card {
+    cursor: pointer;
+    width: 340px;
+    height: 394px;
+    background: #2D3748;
+    border-radius: 5px;
+    border: 1px solid #2D3748;
+    transition: all .2s;
+   
+   }
+
+
+
+   .navbar{
+    font-family:  'Montserrat', sans-serif;
+    font-size: 12px;
+    background-color:#2D3748;
+   }
+  
+   
+  
+  @media (max-width: 600px) {
+    .cardProducto {
+      width: 95%; 
+      margin: 0.7rem 0;
+      margin-left: 10px;
+    }
+  }

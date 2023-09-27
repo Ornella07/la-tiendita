@@ -8,8 +8,8 @@ import { Flex } from "@chakra-ui/react"
 
 const ItemDetailContainer = () => {
     
-    const [producto, setProductos] = useState([]);
-    console.log(producto)
+    const [productos, setProductos] = useState([]);
+    console.log(productos)
     const {id} = useParams()
 
     useEffect(()=>{
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
         alignItems="center"
         gap={4}
         >
-            <ItemDetail productos={producto} />
+            <ItemDetail productos={productos} />
         </Flex>
     )
 }
