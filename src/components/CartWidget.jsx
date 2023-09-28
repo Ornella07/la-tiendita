@@ -5,18 +5,13 @@ import { CartContext } from "../context/CartContext"
 
 
 const CartWidget = () => {
-    const {cantidadTotal} = useContext(CartContext);
+    const {totalQuantity} = useContext(CartContext);
  
     return (
-        <div className='widgetCarrito'>
-            <Link to="/cart">
+            <Link to="/cart" style={{display: totalQuantity > 0 ? 'block' : 'none'}}>
             <span className="material-symbols-outlined">Shopping_cart</span>
-            {
-                cantidadTotal > 0 && <strong className='cantidad'>{cantidadTotal}</strong>
-            }
+            { totalQuantity }
             </Link>
-        </div>
     )
 }
-
     export default CartWidget;

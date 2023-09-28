@@ -1,65 +1,75 @@
 
 import { useContext } from "react"
 import { CartContext } from "../context/CartContext"
-import { Button } from "@chakra-ui/react"
+import CartItem from './CartItems'
 import { Link } from "react-router-dom"
 
 
 const Cart = () => {
-    const { carrito, vaciarCarrito, total, cantidadTotal } = useContext(
-      CartContext
-    );
-  
-    if (cantidadTotal === 0) {
+
+      const {cart, clearCart, totalQuantity, total} = useContext(CartContext)
+
+      if(totalQuantity === 0){
+        return (
+          <div>
+            <h1>No hay productos en el carrito</h1>
+            <Link to='/' >Productos</Link>
+          </div>
+        )
+      }
       return (
-        <div className="carrito">
-          <h2>No hay productos en el carrito</h2>
-          <Link to="/" className="btn btn-primary"> Ver productos </Link>
+        <div>
+          { cart.map((producto => <CartItem key={producto.id} {...producto}/> ))}
+          <h3>Total: ${total}</h3>
+          <button onClick={() => clearCart() } className='Button' > Limpiar Carrito </button>
+          <hr />
+        <Link to='/checkout'>Checkout</Link>
         </div>
-      );
-    }
-  
-    return (
-      <div className="carrito">
-        {carrito.map((producto) => (
-          <CartItem key={producto.id} {...producto} />
-        ))}
-        <h3>Total: $ {total}</h3>
-        <h3>Cantidad total: {cantidadTotal}</h3>
-        <button className="btn btn-danger" onClick={() => vaciarCarrito()}>
-          Vaciar Carrito
-        </button>
-        <hr />
-        <Link to="/checkout" className="btn btn-primary botonFinal">
-          Finaliza Tu Compra
-        </Link>
-      </div>
-    );
-  };
-
-// const Cart = () => {
-//     const {cart } = useContext(CartContext)
-
-//     return(
-//         <>
-//         {cart.length > 0 ?
-//             // cart.map((p)=>{
-//             //     return(
-
-//             //     )
-//             // })
-//             <Form />
-//             : 
-//                 <Button colorScheme="teal" variant='solid'>
-//                     <Link to={'/'}>Regresar a la tienda</Link>
-//                     </Button>
-    
-    
-//         }
-
-//         </>
-//         )
-//     }
-
+      )
+}
 
 export default Cart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const {cart,addItem,removeItem, clearCart, isInCart } = useContext(
+//   CartContext
+// );
+
+// if (addItem === 0) {
+//   return (
+//     <div className="carrito">
+//       <h2>No hay productos en el carrito</h2>
+//       <Link to="/" className="btn btn-primary"> Ver productos </Link>
+//     </div>
+//   );
+// }
+
+// return (
+//   <div className="carrito">
+//     {cart.map((producto) => (
+//       <CartItem key={producto.id} {...producto} />
+//     ))}
+//     {/* <h3>Total: $ {total}</h3> */}
+//     {/* <h3>Cantidad total: {cantidadTotal}</h3> */}
+//     <button className="btn btn-danger" onClick={() => clearCart()}>
+//       Vaciar Carrito
+//     </button>
+//     <hr />
+//     <Link to="/checkout" className="btn btn-primary botonFinal">
+//       Finaliza Tu Compra
+//     </Link>
+//   </div>
+// );
+// };

@@ -30,17 +30,17 @@ const NavBar = () => {
                         </MenuButton>
                         <MenuList  fontSize={18} color={'grey'}>
                         <MenuItem  >
-                            <Link  to={`/category/${'Red'}`}>
+                            <Link  to={`/categoria/${'Red'}`}>
                                 Red
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Link to={`/category/${'Rubia'}`}>
+                            <Link to={`/categoria/${'Rubia'}`}>
                                 Rubia
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                        <Link to={`/category/${'Porter'}`}>
+                        <Link to={`/categoria/${'Porter'}`}>
                                 Porter
                             </Link>
                         </MenuItem>

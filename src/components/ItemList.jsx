@@ -5,7 +5,7 @@ import { Flex } from "@chakra-ui/react"
 
 
 const ItemList = ({ productos }) => {
-    console.log(productos)
+    // console.log(productos)
     return(
         <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center" gap={1}>
              {

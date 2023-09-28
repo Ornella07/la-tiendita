@@ -12,6 +12,7 @@ const Item = ({ id, Titulo, Precio, Imagen, Descripcion}) => {
             <h3 > {Titulo}</h3>
             <p><b>Precio: $</b>{Precio}</p>
             <p><b>Descripcion:</b> {Descripcion}</p>
+            
             <Button className="button"  as={Link} to={`/item/${id}`} m={'35px'}>
                 Ver Detalles
             </Button>

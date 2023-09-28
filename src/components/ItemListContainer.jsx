@@ -7,23 +7,34 @@ import { useState, useEffect } from "react"
     const ItemListContainer = () => {
         const db = getFirestore()
         const [productos, setProductos] = useState([])
+
         const {id} = useParams()
+
+        const [loading, setLoading] = useState(true)
         
 
     useEffect(()=> {
-        
-        const productos = id ? query(collection (db,'tiendita'), where ("id", "==", id)) : collection(db, "tiendita")
+        setLoading(true)
+        // const itemCollection = collection(db, 'tiendita')
+        const itemCollection = id
+                ? query(collection(db,'tiendita'), where('categoria', '==', id))
+                : collection(db, 'tiendita')
+                
 
-        getDocs(productos)
-        .then(res => {
-            const nuevosProd = res.docs.map(doc => {
+        getDocs(itemCollection)
+        .then(response => {
+            const nuevosProd = response.docs.map(doc => {
                 const data = doc.data()
-                return {id: doc.id, ...data}
+                return { id: doc.id, ...data }
             })
             setProductos(nuevosProd)
         })
         .catch(error => console.log(error))
     }, [id])
+        // .finally(() => {
+        //     setLoading(false)
+        // }, [id])
+
         return(
             <> 
             <ItemList productos={productos} />

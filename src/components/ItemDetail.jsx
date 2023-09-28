@@ -1,34 +1,20 @@
-import React, { useContext } from "react";
-import {Card, CardBody,Image, Heading, Text, CardHeader, Center, ButtonGroup, Divider, Stack} from '@chakra-ui/react'
+import React, { useState } from "react";
+import {Card, CardBody,Image, Heading, Text, CardHeader, Center, ButtonGroup,} from '@chakra-ui/react'
 import ItemCount from './ItemCount'
-import { useParams } from "react-router-dom";
-import CartContext from "../context/CartContext";
-import { useState, useEffect } from "react"
-import {doc, getDoc, getFirestore} from 'firebase/firestore'
+import { Link } from "react-router-dom";
 
 
+const ItemDetail = ({productos,stock}) => {
 
-const ItemDetail = ({ productos }) => {
-    const [producto, setProductos] = useState([]);
-    console.log(producto)
-    const {id} = useParams()
-
-    useEffect(()=>{
-        const db = getFirestore()
-
-        const oneItem = doc(db, "tiendita", `${id}`)
-        console.log(oneItem)
-        getDoc(oneItem).then((snapshot) => {
-            if(snapshot.exists()){
-                const docs = snapshot.data()
-                setProductos(docs)
-            }
-        })
-    },[])
-    // const { addItem } = useContext(CartContext)
-    // function handleAddItem(quantity){
-    //     addItem(filteredProduct[0], quantity)
-    // }
+    const [quantityAdded, setQuantityAdded] = useState(0)
+    
+    const handleOnAdd = (quantity) =>{
+        setQuantityAdded(quantity)
+        // const productos= {
+        //     Titulo,Precio
+        // }
+        // addItem(productos, quantity)
+    }
         return (
                 <div>
                     <Center p='1rem' > 
@@ -40,23 +26,27 @@ const ItemDetail = ({ productos }) => {
                                 <Image  boxSize='300px'
                                         objectFit='cover'
                                         src={productos.Imagen}
-                                        // borderRadius='lg' 
                                 />
                                 <Text as="" justifyContent={'space-between'}>Descripcion: {productos.Descripcion}</Text>
                                 <Text  >Categoria: {productos.Categoria}</Text>
-                               
                                 <Text  >Precio: $ {productos.Precio}</Text>
+                                <Text>Stock:{stock}</Text>
                             </CardBody>
                             <ButtonGroup>
-                                {/* <ItemCount handleAdd={handleAddItem} />             */}
+                                {
+                                    quantityAdded > 0 ? (
+                                        <Link to='/cart' className='Option'>Terminar Compra</Link>
+                                    ) : (
+                                        <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} /> 
+                                    )
+                                }
                             </ButtonGroup>
-                            
                         </Card>
                         </Center>
-                   
                     </div>
 
     )
 }
 export default React.memo(ItemDetail)
+
 
