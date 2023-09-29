@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,400&family=Poppins:wght@200&display=swap');
+
+
+.buttons{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 22px;
+ 
+}
+.button-1{
+  background-color: #2D3748;
+  border-radius:30px;
+  margin-bottom: 5px;
+  padding: 10px;
+  color: beige;
+ 
+}
+.button-2{
+    background-color: #2D3748;
+    padding: 10px;
+    color: beige;
+    border-radius: 25px;
+    width: 55px;
+
+}
+.button-3{
+    background-color: #81848a;
+    padding: 10px;
+    color: beige;
+    border-radius: 25px;
+    width: 55px;
+ 
+}

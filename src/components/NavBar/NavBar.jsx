@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import {
     Menu,
     MenuButton,
@@ -7,15 +7,14 @@ import {
     Flex, Box, Spacer
     
 } from '@chakra-ui/react'
-import CartWidget from './CartWidget'
-import { Link } from 'react-router-dom'
-import   '../../src/style.css'
+import CartWidget from '../CartWidget/CartWidget'
+import { Link, NavLink } from 'react-router-dom'
+import   '../../../src/style.css'
 
 
 const NavBar = () => {
     return (
         <div>
-
             <Flex className='navbar'  bg='gray.700' alignItems={'center'} justifyContent={'space-between'}>
                 <Box p='3'>
                     <Link to={'/'}>
@@ -29,35 +28,31 @@ const NavBar = () => {
                         Birritas
                         </MenuButton>
                         <MenuList  fontSize={18} color={'grey'}>
-                        <MenuItem  >
-                            <Link  to={`/categoria/${'Red'}`}>
+                        <MenuItem >
+                            <Link as={NavLink} to={'/categoria/Red'}>
                                 Red
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Link to={`/categoria/${'Rubia'}`}>
+                            <Link as={NavLink} to={'/categoria/Rubia'}>
                                 Rubia
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                        <Link to={`/categoria/${'Porter'}`}>
+                        <Link as={NavLink} to={'/categoria/Porter'}>
                                 Porter
                             </Link>
                         </MenuItem>
-
                     </MenuList>
                 </Menu>
                 </Box>
                 <Spacer />
-
                 <Box p='4' m='2' fontSize={20}  color={'grey'}>
                     <Link to={'/cart'}>
                         <CartWidget/>
                     </Link>
                 </Box>
-
                 </Flex>
-            
         </div>
     )
 }

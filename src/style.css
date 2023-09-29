@@ -14,7 +14,7 @@
   
   .imgProducto {
     width: 200px;
-    height: 200px;
+    height: 150px;
     object-fit: contain;
     margin-bottom: 1rem;
     
@@ -39,13 +39,37 @@
     margin-bottom: 0.5rem;
   }
   
+  .contenedorItem {
+    text-align: center;
+    border-radius: 30px;
+    margin: 3rem;
+    margin-left: 190px;
+    margin-right: 190px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    cursor: pointer;
+    background: rgb(158, 153, 153);
+    border: 1px solid rgba(66, 66, 68, 0.2);
+    transition: all .2s;
+  
+}
+.cardImagen{
+    width: 300px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+
+}
   .button {
       margin-bottom: 5px;
       color:wheat;
       height: 10px;
-     
+
   }
-  
   .card {
     cursor: pointer;
     width: 340px;
@@ -57,7 +81,12 @@
    
    }
 
-
+.imagen{
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+}
 
    .navbar{
     font-family:  'Montserrat', sans-serif;

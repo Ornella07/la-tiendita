@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import { collection, addDoc, updateDoc, doc, getDoc, DocumentReference} from 'firebase/firestore'
+import { collection, addDoc, updateDoc, doc, getDoc} from 'firebase/firestore'
+
 import {
     FormControl,
     FormLabel,
@@ -22,12 +23,13 @@ const Checkout = () => {
 
     const manejadorFormulario = (e) =>{
         e.preventDefault()
+
         if(!nombre  || !apellido || !telefono || !email || !emailConfirmacion){
             setError('Por Favor, complete todos los campos')
             return
         }
         if(email !== emailConfirmacion){
-            setError('Email no coincide')
+            setError('El email no coincide')
             return
         }
         const orden = {
@@ -44,24 +46,26 @@ const Checkout = () => {
             fecha: new Date()
         }
         Promise.all(
-            orden.items.map(async(productoOrden) => {
+            orden.items.map(async (productoOrden) => {
                 const productoRef = doc(db,'tiendita', productoOrden.id);
                 const productoDoc = await getDoc(productoRef)
                 const stockActual = productoDoc.data().stock;
 
-                await updateDoc(produ, {
+                await updateDoc(productoRef, {
                     stock: stockActual - productoOrden.cantidad
                 })
             })
         )
-        .then(()=> {
-            addDoc(collection(db,'orden'), orden)
-            .then((docRef.id))
-            vaciarCarrito();
-        })
-        .catch((error) => {
-            console.log('Error al actualizar el stock',error)
-            setError('Se produjo un error al actualizar el stock, ¡Intente Nuevamente!')
+        .then(() => {
+          addDoc(collection(db, "ordenes"), orden)
+            .then((docRef) => {
+              setOrdenId(docRef.id);
+              vaciarCarrito();
+            })
+            .catch((error) => {
+              console.log("Error al crear la orden", error);
+              setError("Error al crear la orden; intente nuevamente");
+            });
         })
     }
     return (
@@ -73,7 +77,7 @@ const Checkout = () => {
                 <p>
                   {producto.item.nombre} x {producto.cantidad}
                 </p>
-                <p>Precio $ {producto.item.Precio} </p>
+                <p>Precio $ {producto.item.precio} </p>
                 <hr />
               </div>
             ))}
