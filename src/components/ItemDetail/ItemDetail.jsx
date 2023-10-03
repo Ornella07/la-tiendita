@@ -5,55 +5,19 @@ import ItemCount from '../ItemCount/ItemCount'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom';
 import './ItemDetail.css'
+import Loading from '../Loading/Loading'
 
-
-// const ItemDetail = ({ id, Titulo, Precio, Imagen, Description, stock }) => {
-   
-//     const [quantityAdd, setQuantityAdd] = useState(0);
-//     const { addItem } = useContext(CartContext);
-  
-//     const manejadorCantidad = (quantityAdd) => {
-//         setQuantityAdd(quantityAdd);
-//       const item = { id, nombre, precio };
-//       addItem(item, quantityAdd);
-//     };
-  
-//     return (
-//       <div className='contenedorItem tarjeta'>
-//         <h2> {Titulo} </h2>
-//         <h3>Precio: ${Precio} </h3>
-//         <p> Descripción: {Description}</p>
-//         <img src={Imagen} alt={Titulo} />
-//         {quantityAdd > 0 ? (
-//           <>
-//             <Link to="/cart" className="btn btn-primary">
-//               Terminar compra
-//             </Link>
-//             <Link to="/" className="btn btn-secondary">
-//               Ver más productos
-//             </Link>
-//           </>
-//         ) : (
-//           <>
-//             <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />
-//             <Link to="/" className="btn btn-secondary">
-//               Ver más productos
-//             </Link>
-//           </>
-//         )}
-//       </div>
-//     );
-//   };
-  
 
 const ItemDetail = ({ productos, stock }) => {
+    <Loading/>
     const [quantityAdd, setQuantityAdd] = useState(0)
     const {addItem} = useContext(CartContext)
-
-    const handleOnAdd = (quantity)=>{
+    const handleOnAdd = (quantity)=>{ 
+        <Loading />
         setQuantityAdd(quantity)
-        const item = { ...productos }
-        addItem(item, quantity)
+            const item = { ...productos }
+            addItem(item, quantity)
+           
     }
     return (
                         <div className="contenedorItem">
@@ -62,6 +26,7 @@ const ItemDetail = ({ productos, stock }) => {
                                     <CardHeader >
                                         <Heading size='md' textAlign='center' color="gray.500">{productos.Titulo}</Heading>
                                     </CardHeader>
+                                    
                                     <CardBody  className="cardbody"> 
                                         <Image className="cardImagen" boxSize='300px'
                                                 objectFit='cover'

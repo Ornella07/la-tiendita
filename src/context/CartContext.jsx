@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext({
     cart: [],
     total: 0,
-    cantidadTotal: 0 //modificacion
+    totalQuantity: 0 //modificacion
 })
 
 export const CartProvider = ({children}) => {

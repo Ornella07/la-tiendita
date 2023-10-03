@@ -6,14 +6,9 @@ import Cart from "./components/Cart/Cart"
 import { CartProvider } from "./context/CartContext"
 import Checkout from "./components/Checkout/Checkout"
 
-// import Form from "./components/Forms"
-
-
 const App = () => {
     return (
     <>
-    
-    
         <BrowserRouter>
           <CartProvider>
             <NavBar />
@@ -23,7 +18,6 @@ const App = () => {
               <Route path="/categoria/:Categoria" element={<ItemListContainer />}/> 
               <Route exact path="/item/:id" element={<ItemDetailContainer/> } />
               <Route path='/checkout' element={<Checkout />} />
-              
               <Route path="*" element={<h1>404 NOT FOUND</h1>} />
             </Routes>   
             </CartProvider >

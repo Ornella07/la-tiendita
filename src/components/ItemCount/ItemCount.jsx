@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./ItemCount.css";
-
 import { Stack, Box,  Button } from "@chakra-ui/react";
 import React from "react";
+
 
 
 const ItemCount = ({stock, initial, addItem}) => {
@@ -11,12 +11,12 @@ const ItemCount = ({stock, initial, addItem}) => {
 
     const increment = () =>{
         if(quantity < stock){
-          setQuantity(quantity + 1)
+            setQuantity(quantity + 1)
         }
     }
         const decrement = () => {
             if(quantity > 1){
-              setQuantity( quantity - 1)
+            setQuantity( quantity - 1)
             }
         }
     
