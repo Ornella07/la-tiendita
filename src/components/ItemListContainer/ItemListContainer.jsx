@@ -26,8 +26,8 @@ import { useState, useEffect } from "react"
         if(productos.length > 0){
             setTimeout(()=> {
                 resolve(productos)
-            }, 1000)
-        }        else{
+            })
+        }else{
             reject('No hay productos')
         }
     })

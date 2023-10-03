@@ -1,147 +1,78 @@
 import { useState, useContext } from 'react'
-import { CartContext } from '../context/CartContext'
-import { collection, addDoc, updateDoc, doc, getDoc} from 'firebase/firestore'
+import { CartContext } from '../../context/CartContext'
+import { collection, addDoc} from 'firebase/firestore'
+import './Checkout.css'
+import { Link } from 'react-router-dom'
 
-import {
-    FormControl,
-    FormLabel,
-    Form,
 
-  } from '@chakra-ui/react'
+
 
 const Checkout = () => {
-    const { cart,  clearCart, totalQuantity, total  } = useContext(CartContext)
 
-    const [ nombre,setNombre] = useState('')
-    const [ apellido, setApellido] = useState('')
-    const [ telefono, setTelefono] = useState('')
-    const [email, setEmail] = useState('')
-    const [ emailConfirmacion, setEmailConfirmacion] = useState('')
-    const [ error, setError] = useState('')
-    const [orderId, setOrderId] = useState('')
+ 
+  const { cart,  clearCart, totalQuantity, total  } = useContext(CartContext)
+  
+  const [user, setUser] = useState({})
+  const [validateEmail, setvalidateEmail] = useState("")
+  const [orderId, setOrderId] = useState("")
 
 
-    const manejadorFormulario = (e) =>{
-        e.preventDefault()
+  const datosComprador = (e) =>{
+      setUser({
+          ...user,
+          [e.target.name]:e.target.value
+      })
+  }
 
-        if(!nombre  || !apellido || !telefono || !email || !emailConfirmacion){
-            setError('Por Favor, complete todos los campos')
-            return
-        }
-        if(email !== emailConfirmacion){
-            setError('El email no coincide')
-            return
-        }
-        const orden = {
-            items: cart.map((producto) => ({
-                id: producto.item.id,
-                nombre: producto.item.nombre,
-                cantidad: producto.cantidad
-            })),
-            total: total, 
-            nombre,
-            apellido,
-            telefono,
-            email,
-            fecha: new Date()
-        }
-        Promise.all(
-            orden.items.map(async (productoOrden) => {
-                const productoRef = doc(db,'tiendita', productoOrden.id);
-                const productoDoc = await getDoc(productoRef)
-                const stockActual = productoDoc.data().stock;
+  const finalizar = (e) =>{
+      e.preventDefault()
+      const orden = {
+          user,
+          item: cart,
+          total: totalQuantity(),         
+          fecha: serverTimestamp(),
+      }
+      const ventas = collection(db,'tiendita', producto.id)
+      addDoc(ventas, orden)
+      .then ((res)=> {
+          setOrderId(res.id)
+          clearCart()
+      })
+      .catch ((error)=>console.log(error))
+  }
 
-                await updateDoc(productoRef, {
-                    stock: stockActual - productoOrden.cantidad
-                })
-            })
-        )
-        .then(() => {
-          addDoc(collection(db, "ordenes"), orden)
-            .then((docRef) => {
-              setOrdenId(docRef.id);
-              vaciarCarrito();
-            })
-            .catch((error) => {
-              console.log("Error al crear la orden", error);
-              setError("Error al crear la orden; intente nuevamente");
-            });
-        })
-    }
-    return (
-        <div className="checkout">
-          <h2>Checkout</h2>
-          <Form onSubmit={manejadorFormulario} className="formulario">
-            {cart.map((producto) => (
-              <div key={producto.id}>
-                <p>
-                  {producto.item.nombre} x {producto.cantidad}
-                </p>
-                <p>Precio $ {producto.item.precio} </p>
-                <hr />
-              </div>
-            ))}
-            <div>
-              <p>Total : {total}</p>
-            </div>
-            <hr />
-            <FormGroup controlId="nombre">
-              <Input>Nombre:</Input>
-              <FormControl
-                type="text"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-              />
-            </FormGroup>
-    
-            <Form controlId="apellido">
-              <FormLabel>Apellido:</FormLabel>
-              <FormControl
-                type="text"
-                value={apellido}
-                onChange={(e) => setApellido(e.target.value)}
-              />
-            </Form>
-    
-            <Form controlId="telefono">
-              <FormLabel>Teléfono:</FormLabel>
-              <FormControl
-                type="text"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-              />
-            </Form>
-    
-            <Form controlId="email">
-              <FormLabel>E-mail:</FormLabel>
-              <FormControl
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form>
-    
-            <Form controlId="emailConfirmacion">
-              <FormLabel>Confirma e-mail:</FormLabel>
-              <FormControl
-                type="email"
-                value={emailConfirmacion}
-                onChange={(e) => setEmailConfirmacion(e.target.value)}
-              />
-            </Form>
-
-            {error && <Alert variant="danger">{error}</Alert>}
-
-        <Button className="ultimoBoton" variant="primary" type="submit">
-        Finalizar Compra
-        </Button>
-        </Form>
-        {orderId && (
-        <strong className="ordenId">
-        ¡Gracias por su compra! El número de orden es {orderId}. <hr /> Recibira un mail en su cuenta {email} con la orden de pago
-        </strong>
-        )}
-        </div>
-);
+return (
+  <div className='check'>
+      {orderId !== "" 
+      ? <div className='div-compfin'>
+          <h3>Su compra ha sido finalizada con exito</h3>
+          <h4>El id de su compra es: <span>{orderId}</span></h4>
+          <Link to='/' className="btn btn-light">Seguir comprando</Link> 
+          </div>
+      :     <div className='div-checkout'>
+      <h2 className='titulo'>Terminar Compra</h2>
+      <h4 className='sub'>Por favor compltar con sus datos</h4>
+      <form className='div-form' onSubmit={finalizar}>
+          <div>
+              <label className='form-label'>Nombre Completo</label>
+              <input onChange={datosComprador} className='form-control' type="text" placeholder='Nombre' name='nombre' required/>
+          </div>
+          <div>
+              <label className='form-label'>Numero Telefonico</label>
+              <input onChange={datosComprador} className='form-control' type="tel" placeholder='Ingrese Celular' name='telefono' required/>
+          </div>
+          <div>
+              <label className='form-label'>Direccion de email</label>
+              <input onChange={datosComprador} className='form-control' type="email" placeholder='Ingrese Email' name='mail' required/>
+          </div>
+          <div>
+              <label className='form-label' >Repita su email</label>
+              <input onChange={((e)=>setvalidateEmail(e.target.value))} className='form-control' type="email" name='mail' placeholder='Repita Email' required/>
+          </div>
+          <button className='boton' type='submit' disabled={validateEmail !== user.mail}>Generar Orden</button>
+      </form>
+  </div>}
+  </div>
+)
 }
 export default Checkout;

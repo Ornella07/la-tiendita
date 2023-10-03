@@ -13,7 +13,7 @@ const ItemList = ({ productos }) => {
             alignItems='center'
             gap={4}>
             {productos.map((productos) => {
-                return <Item {...productos} key={productos.Id} />;
+                return <Item {...productos} key={productos.id} />;
             })}
 
 

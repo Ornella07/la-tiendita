@@ -74,9 +74,9 @@
     cursor: pointer;
     width: 340px;
     height: 394px;
-    background: #2D3748;
+    background: rgb(134, 104, 104);
     border-radius: 5px;
-    border: 1px solid #2D3748;
+    border: 1px solid #85878a;
     transition: all .2s;
    
    }
@@ -91,7 +91,7 @@
    .navbar{
     font-family:  'Montserrat', sans-serif;
     font-size: 12px;
-    background-color:#2D3748;
+        background-color:#2D3748;
    }
   
    

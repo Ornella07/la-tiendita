@@ -75,12 +75,17 @@ const ItemDetail = ({ productos, stock }) => {
                                     <Text className="descripcion" as="" justifyContent={'space-around'}>Descripcion: {productos.Description}</Text>
                                     <ButtonGroup className="buttonCar">
                                         {
-                                            CartContext > 0 ? (
-                                                <Link to='/cart' className='Option'>Terminar Compra</Link>
-                                            ) : (
-                                                <ItemCount initial={1} stock={productos.stock} addItem={handleOnAdd} /> 
-                                            )
+                                            <ItemCount initial={1} stock={productos.stock} addItem={handleOnAdd} /> 
                                         }
+                                        <div className="botoncito">
+                                            <Link to="/" className="botoncito1 " >
+                                                    Ver más productos
+                                            </Link>
+                                            <Link to='/cart' className="botoncito2">
+                                                Finalizar Compra
+                                            </Link>
+                                        </div>
+                                        
                                     </ButtonGroup>
                                 </Card>
                                 </Center>
