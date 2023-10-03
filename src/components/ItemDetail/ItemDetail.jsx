@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import {Card, CardBody,Image, Heading, Text, CardHeader, Center, ButtonGroup} from '@chakra-ui/react'
 import ItemCount from '../ItemCount/ItemCount'
@@ -13,7 +12,7 @@ const ItemDetail = ({ productos, stock }) => {
     const [quantityAdd, setQuantityAdd] = useState(0)
     const {addItem} = useContext(CartContext)
     const handleOnAdd = (quantity)=>{ 
-        <Loading />
+        
         setQuantityAdd(quantity)
             const item = { ...productos }
             addItem(item, quantity)
@@ -57,7 +56,5 @@ const ItemDetail = ({ productos, stock }) => {
                             </div>
         
             )
-
 }
 export default React.memo(ItemDetail)
-

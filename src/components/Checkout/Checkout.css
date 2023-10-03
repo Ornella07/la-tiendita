@@ -49,3 +49,29 @@
     background-color: rgb(117, 121, 121);
     border-radius: 30px;
 }
+.div-compfin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.titulo-form{
+    font-size: 22px;
+    margin-top: 28px;
+    margin-bottom: 30px;
+}
+.boton-4{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    background-color: rgb(117, 121, 121);
+    color:rgb(182, 171, 171);
+    border-radius: 30px;
+    height: 35px;
+    width: 210px;
+    text-align: center;
+   
+    
+}
+.boton-4:hover{
+    color: rgb(117, 121, 121);
+    background-color:rgb(182, 171, 171) ;
+}

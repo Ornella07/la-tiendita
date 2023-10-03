@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { collection, addDoc} from 'firebase/firestore'
+import { collection, addDoc, getFirestore} from 'firebase/firestore'
 import './Checkout.css'
 import { Link } from 'react-router-dom'
 
@@ -10,24 +10,28 @@ const Checkout = () => {
     const [user, setUser] = useState({})
     const [validateEmail, setvalidateEmail] = useState("")
     const [orderId, setOrderId] = useState("")
+
+    const db = getFirestore()
     const datosComprador = (e) =>{
+        
         setUser({
             ...user,
             [e.target.name]:e.target.value
         })
     }
     const finalizar = (e) =>{
+        
         e.preventDefault()
-        const orden = {
+                const orden = {
             user,
             item: cart,
-            total: totalQuantity(),         
-            fecha: new Date(),
+            total: total,         
+            // fecha: new Date(),
         }
-        const ventas = collection(db,'tiendita', producto.id)
+        const ventas = collection(db,'tiendita')
         addDoc(ventas, orden)
-        .then ((res)=> {
-            setOrderId(res.id)
+        .then (({ id })=> {
+            setOrderId(id)
             clearCart()
         })
         .catch ((error)=>console.log(error))
@@ -37,9 +41,10 @@ const Checkout = () => {
     <div className='check'>
         {orderId !== "" 
         ? <div className='div-compfin'>
-            <h3>Su compra ha sido finalizada con exito</h3>
-            <h4>El id de su compra es: <span>{orderId}</span></h4>
-            <Link to='/' className="btn btn-light">Seguir comprando</Link> 
+            
+            <h3 className='titulo-form'>Felicidades, tu compra fue registrada con exito</h3>
+            <h4 className='titulo-form'>El id de su compra es: <span>{orderId}</span></h4>
+            <Link to='/' className="boton-4">Seguir comprando</Link> 
             </div>
         :     <div className='div-checkout'>
         <h2 className='titulo'>Terminar Compra</h2>
@@ -50,7 +55,7 @@ const Checkout = () => {
                 <input onChange={datosComprador} className='form-control' type="text" placeholder='Nombre' name='nombre' required/>
             </div>
             <div>
-                <label className='form-label'>Numero Telefonico</label>
+                <label className='form-label'>Telefono</label>
                 <input onChange={datosComprador} className='form-control' type="tel" placeholder='Ingrese Celular' name='telefono' required/>
             </div>
             <div>

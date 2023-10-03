@@ -1,7 +1,7 @@
 import React from "react"
 import Item from '../Item/Item'
 import { Flex } from "@chakra-ui/react"
-import Loading from "../Loading/Loading"
+// import Loading from "../Loading/Loading"
 
 const ItemList = ({ productos }) => { 
     
@@ -14,7 +14,7 @@ const ItemList = ({ productos }) => {
             {productos.map((productos) => {
                 return <Item {...productos} key={productos.id} />
             })}
-            <Loading />
+            
         </Flex>
             )
 }
