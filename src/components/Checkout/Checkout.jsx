@@ -4,7 +4,6 @@ import { collection, addDoc, getFirestore} from 'firebase/firestore'
 import './Checkout.css'
 import { Link } from 'react-router-dom'
 
-
 const Checkout = () => {
     const { cart,  clearCart, totalQuantity, total } = useContext(CartContext)
     const [user, setUser] = useState({})
