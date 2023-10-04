@@ -6,12 +6,13 @@ import {doc, getDoc, getFirestore} from 'firebase/firestore'
 import { Flex } from "@chakra-ui/react"
 import Loading from "../Loading/Loading"
 
-
 const ItemDetailContainer = () => {
+    
     const [producto, setProductos] = useState({});
     const [loading, setLoading] = useState(false)//modifica
     const {id} = useParams()
     useEffect(()=>{
+        setLoading(true)
         const db = getFirestore()
         const oneItem = doc(db, "tiendita", id)
                
@@ -40,6 +41,7 @@ const ItemDetailContainer = () => {
         alignItems="center"
         gap={4}
         >
+           
             <ItemDetail productos={producto} />
         </Flex>
     )
