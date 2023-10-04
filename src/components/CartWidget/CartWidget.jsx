@@ -4,7 +4,6 @@ import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
     const { totalQuantity} = useContext(CartContext);
-    
     return (
         <div className='widgetCarrito'>
             <Link to="/cart" style={{display: totalQuantity > 0 ? 'block' :'none'}}>
