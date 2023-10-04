@@ -1,8 +1,6 @@
-
 import { Link } from "react-router-dom";
 import React, { useContext } from "react"
 import { CartContext } from "../../context/CartContext";
-
 
 const CartWidget = () => {
     const { totalQuantity} = useContext(CartContext);
@@ -18,5 +16,4 @@ const CartWidget = () => {
         </div>
     )
 }
-
 export default CartWidget

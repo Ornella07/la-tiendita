@@ -14,7 +14,7 @@
     padding-top: 30px;
     padding-bottom: 30px;
     cursor: pointer;
-    background: rgb(255, 255, 255);
+    background: rgb(134, 104, 104);
     border: 1px solid rgba(0, 0, 255, .2);
     transition: all .2s;
   
@@ -72,10 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    
 }
-
 
 @media (max-width: 767px) {
     .contenedorItem {
@@ -84,7 +81,6 @@
       margin-right: 100px;
       padding: 10px;
     }
-    
     img {
       width: 200px;
     }

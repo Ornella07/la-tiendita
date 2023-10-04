@@ -19,6 +19,4 @@ const Item = ({ id, Titulo, Precio, Imagen, Descripcion}) => {
         </div>
     )
 }
-
-
 export default Item;
