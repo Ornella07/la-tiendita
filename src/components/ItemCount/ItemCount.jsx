@@ -28,8 +28,8 @@ const ItemCount = ({stock, initial, addItem}) => {
                             -
                         </button>
                     </Box>
-                    <Box w='40px' h='40px'>
-                       <h4 className="button-3">{quantity}</h4>
+                    <Box w='50px' h='40px'>
+                       <h4 className="button-2">{quantity}</h4>
                     </Box>
                     <Box  w='50px' h='40px'>
                     <button  className="button-2" onClick={increment}>
@@ -38,7 +38,9 @@ const ItemCount = ({stock, initial, addItem}) => {
                     
                     </Box>
                     <Box >
-                    <Button className='botoni' variant='dark' onClick={() => addItem(quantity)}>Agregar al Carrito</Button>
+                    <Button className='boton-1' variant='dark' onClick={() => addItem(quantity)}>
+                        <span >Agregar al Carrito</span>
+                    </Button>
                     </Box>
                 </Stack>
             
