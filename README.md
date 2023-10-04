@@ -17,3 +17,4 @@ ___
 
 
 
+![Latiendita](https://github.com/Ornella07/la-tiendita/assets/90015172/5f142560-18fd-486f-bb13-ed8d51f51e28)
