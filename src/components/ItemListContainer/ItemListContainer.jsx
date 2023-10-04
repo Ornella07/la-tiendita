@@ -10,17 +10,18 @@ import Loading from '../Loading/Loading'
         const {Categoria} = useParams() //Filtrad
         const [loading, setLoading] = useState(false)
 
+
         useEffect(()=> {
             setLoading(true)
                 const itemCollection = collection(db, 'tiendita')
             getDocs(itemCollection).then((snapshot) => {
-               const docs = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-               setProductos(docs)
+                const docs = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+                setProductos(docs)
             })
             },[])
             const mostrarProductos = new Promise((resolve,reject) => {
                 if(productos.length > 0){
-                                   setTimeout(()=> {
+                            setTimeout(()=> {
                             setLoading(false)
                             resolve(productos)
                     },1500)
@@ -48,3 +49,4 @@ import Loading from '../Loading/Loading'
                 )
         }
             export  default ItemListContainer
+

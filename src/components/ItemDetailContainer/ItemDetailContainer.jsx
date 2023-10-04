@@ -6,7 +6,6 @@ import {doc, getDoc, getFirestore} from 'firebase/firestore'
 import { Flex } from "@chakra-ui/react"
 import Loading from "../Loading/Loading"
 
-
 const ItemDetailContainer = () => {
     
     const [producto, setProductos] = useState({});

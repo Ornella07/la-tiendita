@@ -7,7 +7,7 @@ ___
 
 ### Caracteristicas Principales.
 * Explora una amplia selección de cervezas artesanales de diferentes estilos y sabores.
-* Filtra cervezas por categorías, sabores, graduación alcohólica y más.
+* Filtra cervezas por categorías.
 * Agrega cervezas al carrito de compras y gestiona las cantidades.
 * Realiza un proceso de checkout simulado para ver cómo funcionaría la compra.
 * Interfaz de usuario intuitiva y atractiva.

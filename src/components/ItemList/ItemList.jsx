@@ -3,7 +3,6 @@ import Item from '../Item/Item'
 import { Flex } from "@chakra-ui/react"
 import Loading from "../Loading/Loading"
 
-
 const ItemList = ({ productos }) => { 
     <Loading/>
     return ( 
@@ -21,4 +20,6 @@ const ItemList = ({ productos }) => {
 }
 
 export default ItemList
+
+
 

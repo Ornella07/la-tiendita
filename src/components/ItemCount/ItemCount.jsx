@@ -3,8 +3,6 @@ import "./ItemCount.css";
 import { Stack, Box,  Button } from "@chakra-ui/react";
 import React from "react";
 
-
-
 const ItemCount = ({stock, initial, addItem}) => {
 
     const [quantity, setQuantity] = useState( initial )
