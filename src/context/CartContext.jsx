@@ -11,10 +11,7 @@ export const CartProvider = ({children}) => {
     const addItem = (item, quantity)=>{
         if(!isInCart(item.id)){
             setCart(prev => [...prev,{...item, quantity}])
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Producto agregado al carrito correctamente'
-            //   });
+           
         }else{
             console.error('El producto ya esta agregardo')
         }
