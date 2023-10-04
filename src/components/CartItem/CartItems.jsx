@@ -23,3 +23,4 @@ const CartItem = ({Titulo, Imagen, id, quantity, Precio}) => {
 }
 export default CartItem
 
+
