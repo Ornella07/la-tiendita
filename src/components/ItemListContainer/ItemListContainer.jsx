@@ -5,31 +5,34 @@ import { useState, useEffect } from "react"
 import Loading from '../Loading/Loading'
 
     const ItemListContainer = () => {
-        <Loading />
         const db = getFirestore()
         const [productos, setProductos] = useState([])
-        const {Categoria} = useParams() //Filtrado
-        const [loading, setLoading] = useState(true)
+        const {Categoria} = useParams() //Filtrad
+        const [loading, setLoading] = useState(false)
 
     useEffect(()=> {
-       
-        setLoading(true)
+    setLoading(true)
         const itemCollection = collection(db, 'tiendita')
-        
     getDocs(itemCollection).then((snapshot) => {
        const docs = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-        setProductos(docs)
+       setProductos(docs)
     })
     },[])
     const mostrarProductos = new Promise((resolve,reject) => {
         if(productos.length > 0){
-                setTimeout(()=> {
-                resolve(productos)
-            })
+                           setTimeout(()=> {
+                    setLoading(false)
+                    resolve(productos)
+            },1500)
         }else{
             reject('No hay productos')
         }
     })
+        if(loading){
+            return(
+                <Loading/>
+            )
+        }
     mostrarProductos
     .then((resultado) => {
         console.log(resultado)

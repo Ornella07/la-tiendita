@@ -1,4 +1,4 @@
-import React from "react"
+import React, { isValidElement } from "react"
 import { useState, useEffect } from "react"
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from "react-router-dom"
@@ -9,14 +9,15 @@ import Loading from "../Loading/Loading"
 
 const ItemDetailContainer = () => {
     const [producto, setProductos] = useState({});
+    const [loading, setLoading] = useState(false)//modifica
     const {id} = useParams()
     useEffect(()=>{
         const db = getFirestore()
         const oneItem = doc(db, "tiendita", id)
-        console.log(oneItem)
+               
         getDoc(oneItem).
             then((snapshot) => {
-                if(snapshot.exists()){<Loading/>
+                if(snapshot.exists()){
                 const docs = snapshot.data()
                 setProductos({id, ...docs})
             } 
@@ -24,8 +25,13 @@ const ItemDetailContainer = () => {
         .catch((error) =>{
             console.log('Error al obtener Productos:', error) 
         })
+        .finally(() => setLoading(false))//modifica
     },[id])
-
+        if(loading){
+            return(
+                <Loading/> 
+            )
+        }
     return(
         
         <Flex 

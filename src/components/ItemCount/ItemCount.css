@@ -2,33 +2,29 @@
 
 
 .buttons{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 22px;
+    padding: 20px;
  
 }
-.button-1{
-  background-color: #2D3748;
+.boton-1{
+  background-color: #81848a;
   border-radius:30px;
   margin-bottom: 5px;
+  margin-top: 12px;
   padding: 10px;
   color: beige;
+  
  
 }
 .button-2{
-    background-color: #2D3748;
+    background-color:rgb(134, 104, 104);;
     padding: 10px;
-    color: beige;
+    color: beige; 
+    padding: 10px;
     border-radius: 25px;
     width: 55px;
-
-}
-.button-3{
-    background-color: #81848a;
-    padding: 10px;
-    color: beige;
-    border-radius: 25px;
-    width: 55px;
- 
 }

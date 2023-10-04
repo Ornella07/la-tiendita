@@ -11,35 +11,34 @@
     align-items: center;
     justify-content: center;
   }
-  
-  .imgProducto {
+ 
+.imgProducto {
     width: 200px;
     height: 150px;
     object-fit: contain;
     margin-bottom: 1rem;
     
-  }
-  .imgProducto:hover{
+}
+.imgProducto:hover{
     transform: scale(1.2);
-  }
+}
   
-  .cardProducto h3 {
+.cardProducto h3 {
     font-family: 'Montserrat', sans-serif;
     color:wheat;
     font-size: 1.2rem;
     font-weight:500;
     margin-bottom: 0.5rem;
-  }
+}
   
-  .cardProducto p {
+.cardProducto p {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color:wheat;
     letter-spacing: 1.4px;
     margin-bottom: 0.5rem;
-  }
-  
-  .contenedorItem {
+}
+.contenedorItem {
     text-align: center;
     border-radius: 30px;
     margin: 3rem;
@@ -56,21 +55,18 @@
     background: rgb(158, 153, 153);
     border: 1px solid rgba(66, 66, 68, 0.2);
     transition: all .2s;
-  
 }
 .cardImagen{
     width: 300px;
     margin-bottom: 20px;
     margin-left: 40px;
-
 }
-  .button {
+.button {
       margin-bottom: 5px;
       color:wheat;
       height: 10px;
-
-  }
-  .card {
+}
+.card {
     cursor: pointer;
     width: 340px;
     height: 394px;
@@ -78,23 +74,24 @@
     border-radius: 5px;
     border: 1px solid #85878a;
     transition: all .2s;
-   
-   }
-
+  
+}
 .imagen{
   display: flex;
   align-items: center;
   width: 200px;
   height: 150px;
 }
-
-   .navbar{
-    font-family:  'Montserrat', sans-serif;
-    font-size: 12px;
-        background-color:#2D3748;
-   }
+.navbar{
+  font-family:  'Montserrat', sans-serif;
+  font-size: 12px;
+  background-color:#2D3748;
+}
   
-   
+
+
+
+
   
   @media (max-width: 600px) {
     .cardProducto {

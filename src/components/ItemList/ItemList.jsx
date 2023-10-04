@@ -1,10 +1,11 @@
 import React from "react"
 import Item from '../Item/Item'
 import { Flex } from "@chakra-ui/react"
-// import Loading from "../Loading/Loading"
+import Loading from "../Loading/Loading"
+
 
 const ItemList = ({ productos }) => { 
-    
+    <Loading/>
     return ( 
                <Flex
             flexWrap='wrap'

@@ -26,9 +26,9 @@ const Checkout = () => {
             user,
             item: cart,
             total: total,         
-            // fecha: new Date(),
+            fecha: new Date(),
         }
-        const ventas = collection(db,'tiendita')
+        const ventas = collection(db,'orden')
         addDoc(ventas, orden)
         .then (({ id })=> {
             setOrderId(id)

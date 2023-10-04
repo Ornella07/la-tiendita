@@ -23,8 +23,6 @@
     margin-top: 70px;
     justify-content: center;
     align-items: center;
-
-
 }
 .div-checkout{
     justify-content: center;
@@ -74,4 +72,9 @@
 .boton-4:hover{
     color: rgb(117, 121, 121);
     background-color:rgb(182, 171, 171) ;
+}
+
+.div-form input:focus{
+    border-bottom: 3px solid  rgb(117, 121, 121);;
+    outline: none;
 }

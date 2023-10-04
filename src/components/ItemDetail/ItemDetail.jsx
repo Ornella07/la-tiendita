@@ -6,17 +6,14 @@ import { Link } from 'react-router-dom';
 import './ItemDetail.css'
 import Loading from '../Loading/Loading'
 
-
-const ItemDetail = ({ productos, stock }) => {
+const ItemDetail = ({ productos }) => {
     <Loading/>
     const [quantityAdd, setQuantityAdd] = useState(0)
     const {addItem} = useContext(CartContext)
-    const handleOnAdd = (quantity)=>{ 
-        
+        const handleOnAdd = (quantity)=>{ 
         setQuantityAdd(quantity)
             const item = { ...productos }
-            addItem(item, quantity)
-           
+            addItem(item, quantity)    
     }
     return (
                         <div className="contenedorItem">
@@ -25,7 +22,6 @@ const ItemDetail = ({ productos, stock }) => {
                                     <CardHeader >
                                         <Heading size='md' textAlign='center' color="gray.500">{productos.Titulo}</Heading>
                                     </CardHeader>
-                                    
                                     <CardBody  className="cardbody"> 
                                         <Image className="cardImagen" boxSize='300px'
                                                 objectFit='cover'
@@ -54,7 +50,6 @@ const ItemDetail = ({ productos, stock }) => {
                                 </Card>
                                 </Center>
                             </div>
-        
-            )
+        )
 }
 export default React.memo(ItemDetail)

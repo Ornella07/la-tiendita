@@ -1,8 +1,16 @@
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,400&family=Poppins:wght@200&display=swap');
 
 .button-detalle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
     width: 130px;
     height: 50px;
+    color:rgb(117, 121, 121);   
+ 
+}
+.button-detalle:hover{
+    transform: scale(1.2);
+    color:rgb(134, 104, 104);
 }
