@@ -11,7 +11,10 @@ export const CartProvider = ({children}) => {
     const addItem = (item, quantity)=>{
         if(!isInCart(item.id)){
             setCart(prev => [...prev,{...item, quantity}])
-           
+           Swal.fire({
+                icon: 'success',
+                title: 'Producto Agregado Al Carrito'
+              });
         }else{
             console.error('El producto ya esta agregardo')
         }
@@ -19,10 +22,7 @@ export const CartProvider = ({children}) => {
     const removeItem = (itemId)=>{
         const cartUpdate = cart.filter(prod => prod.id !== itemId)
         setCart(cartUpdate)
-        Swal.fire({
-            icon: 'warning',
-            title: 'Producto Eliminado'
-          });
+        
     }
     const clearCart = () => {
         setCart([])
