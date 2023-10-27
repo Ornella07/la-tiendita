@@ -3,7 +3,14 @@
 body{
       overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: #e3e1e1;
+  border-radius: 5px;
+}
 .cardProducto {
     border: 1px solid #e3e1e1;
     border-radius: 8px;
