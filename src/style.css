@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,400&family=Poppins:wght@200&display=swap');
 
+body{
+      overflow-x: hidden;
+}
+
 .cardProducto {
     border: 1px solid #e3e1e1;
     border-radius: 8px;
